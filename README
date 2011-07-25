@@ -1,17 +1,3 @@
 django-medias
 ===============
-http://github.com/vosi/django-sitenews
-
-Generic app for common site news tasks
-
-Feel free to fork, contribute, fire an issue
-
-ToDo:
-* Docs
-* README
-* Examples
-* Setup
-* Tests
-* Fixes
-* Features
-* ToDo
+http://github.com/vosi/django-medias
