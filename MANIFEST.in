@@ -1,0 +1,9 @@
+include README
+include AUTHORS
+include LICENSE
+recursive-include medias/locale *
+recursive-include medias/management *
+recursive-include medias/migrations *
+recursive-include medias/static *
+recursive-include medias/templates *
+recursive-include medias/templatetags *
