@@ -9,7 +9,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         
         # Adding model 'File'
-        db.create_table('filebrowser_file', (
+        db.create_table('medias_file', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('path', self.gf('django.db.models.fields.files.FileField')(max_length=100)),
             ('size', self.gf('django.db.models.fields.IntegerField')(db_index=True, blank=True)),
@@ -20,18 +20,18 @@ class Migration(SchemaMigration):
             ('length', self.gf('django.db.models.fields.IntegerField')(default=0, db_index=True, blank=True)),
             ('bitrate', self.gf('django.db.models.fields.IntegerField')(default=0, db_index=True, blank=True)),
             ('words', self.gf('django.db.models.fields.IntegerField')(default=0, db_index=True, blank=True)),
-            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2011, 7, 14, 19, 1, 16, 347019), auto_now_add=True, db_index=True, blank=True)),
+            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2011, 7, 26, 4, 41, 23, 995900), auto_now_add=True, db_index=True, blank=True)),
             ('created_by', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='+', null=True, blank=True, to=orm['auth.User'])),
-            ('modified_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2011, 7, 14, 19, 1, 16, 347122), auto_now=True, db_index=True, auto_now_add=True, blank=True)),
+            ('modified_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2011, 7, 26, 4, 41, 23, 996083), auto_now=True, db_index=True, auto_now_add=True, blank=True)),
             ('modified_by', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='+', null=True, blank=True, to=orm['auth.User'])),
         ))
-        db.send_create_signal('filebrowser', ['File'])
+        db.send_create_signal('medias', ['File'])
 
 
     def backwards(self, orm):
         
         # Deleting model 'File'
-        db.delete_table('filebrowser_file')
+        db.delete_table('medias_file')
 
 
     models = {
@@ -71,16 +71,16 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        'filebrowser.file': {
+        'medias.file': {
             'Meta': {'object_name': 'File'},
             'bitrate': ('django.db.models.fields.IntegerField', [], {'default': '0', 'db_index': 'True', 'blank': 'True'}),
-            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2011, 7, 14, 19, 1, 16, 347019)', 'auto_now_add': 'True', 'db_index': 'True', 'blank': 'True'}),
+            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2011, 7, 26, 4, 41, 23, 995900)', 'auto_now_add': 'True', 'db_index': 'True', 'blank': 'True'}),
             'created_by': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'related_name': "'+'", 'null': 'True', 'blank': 'True', 'to': "orm['auth.User']"}),
             'ext': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '255', 'blank': 'True'}),
             'height': ('django.db.models.fields.IntegerField', [], {'default': '0', 'db_index': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'length': ('django.db.models.fields.IntegerField', [], {'default': '0', 'db_index': 'True', 'blank': 'True'}),
-            'modified_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2011, 7, 14, 19, 1, 16, 347122)', 'auto_now': 'True', 'db_index': 'True', 'auto_now_add': 'True', 'blank': 'True'}),
+            'modified_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2011, 7, 26, 4, 41, 23, 996083)', 'auto_now': 'True', 'db_index': 'True', 'auto_now_add': 'True', 'blank': 'True'}),
             'modified_by': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'related_name': "'+'", 'null': 'True', 'blank': 'True', 'to': "orm['auth.User']"}),
             'path': ('django.db.models.fields.files.FileField', [], {'max_length': '100'}),
             'size': ('django.db.models.fields.IntegerField', [], {'db_index': 'True', 'blank': 'True'}),
@@ -90,4 +90,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['filebrowser']
+    complete_apps = ['medias']
