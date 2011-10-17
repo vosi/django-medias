@@ -11,7 +11,6 @@ from medias.models import File
 
 
 class MediasAdmin(admin.ModelAdmin):
-    actions = None
     list_per_page = 50
 
     list_display = ('_select', 'title', '_size', '_date',)
