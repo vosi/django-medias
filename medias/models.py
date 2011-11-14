@@ -12,6 +12,7 @@ from medias.settings import *
 
 class File(models.Model):
     path = models.FileField(_('Path'), upload_to='medias/%Y/%m/%d/%H')
+    title = models.CharField(_('Title'), max_length=255)
     #TODO: take upload_to from settings & include type
     size = models.IntegerField(_('Size'), db_index=True, blank=True)
     ext = models.CharField(_('Extension'), max_length=255, db_index=True, blank=True)
@@ -60,10 +61,6 @@ class File(models.Model):
 
         #self.size = self.path.
         super(File, self).save(*args, **kwargs)
-
-    def _title(self):
-        return os.path.split(self.path.path)[1]
-    title = property(_title)
 
     def _filesize(self):
         return self.size

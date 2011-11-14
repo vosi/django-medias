@@ -13,9 +13,11 @@ from medias.models import File
 class MediasAdmin(admin.ModelAdmin):
     list_per_page = 50
 
-    list_display = ('_select', 'title', '_size', '_date',)
+    list_display = ('_select', '_preview', 'title', '_size', '_date',)
     list_filter = ['created_at']
     date_hierarchy = 'created_at'
+    list_per_page = 25
+    search_fields = ['title']
 
     fieldsets = (
             (None, {
@@ -114,5 +116,11 @@ class MediasAdmin(admin.ModelAdmin):
             return '-'
     _select.allow_tags = True
     _select.short_description = _('Select')
+
+    def _preview(self, obj):
+        return '<a href="' + escapejs(obj.url) + '" target="_blank"> \
+            <img src="' + escapejs(obj.url) + '" width="50"></a>'
+    _preview.allow_tags = True
+    _preview.short_description = _('Preview')
 
 admin.site.register(File, MediasAdmin)
