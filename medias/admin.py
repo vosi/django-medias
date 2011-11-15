@@ -32,11 +32,6 @@ class MediasAdmin(admin.ModelAdmin):
         super(MediasAdmin, self).__init__(*args, **kwargs)
         self.list_display_links = (None, )
 
-    def change_view(self, request, obj=None):
-        from django.core.urlresolvers import reverse
-        from django.http import HttpResponseRedirect
-        return HttpResponseRedirect(reverse('admin:filebrowser_file_changelist'))
-
     def changelist_view(self, request, extra_context={}):
         from django.contrib.admin.views.main import IS_POPUP_VAR
         if IS_POPUP_VAR in request.GET:
@@ -65,7 +60,6 @@ class MediasAdmin(admin.ModelAdmin):
         msg = _('The %(name)s "%(obj)s" was added successfully.') % \
               {'name': force_unicode(opts.verbose_name), 'obj': force_unicode(obj)}
 
-        print 2
         if request.POST.has_key("ref") and \
            urlparse.urlparse(request.POST['ref']).query and \
            request.get_host() in request.POST['ref'] and \

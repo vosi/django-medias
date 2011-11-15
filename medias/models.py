@@ -39,6 +39,11 @@ class File(models.Model):
                                     editable=False, blank=True,
                                     null=True, default=None)
 
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = _('File')
+        verbose_name_plural = _('Files')
+
 
     def save(self, *args, **kwargs):
         image = False
@@ -57,6 +62,7 @@ class File(models.Model):
         if image:
             self.width = image.size[0]
             self.height = image.size[1]
+            self.type = 'image'
 
 
         #self.size = self.path.
