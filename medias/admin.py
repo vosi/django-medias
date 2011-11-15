@@ -64,7 +64,6 @@ class MediasAdmin(admin.ModelAdmin):
            urlparse.urlparse(request.POST['ref']).query and \
            request.get_host() in request.POST['ref'] and \
            not (request.POST.has_key("_continue") or request.POST.has_key("_saveasnew") or request.POST.has_key("_addanother")):
-            print 1
 
             self.message_user(request, msg)
             change_url = reverse('admin:%s_%s_changelist' % (self.model._meta.app_label, self.model._meta.module_name))
