@@ -21,7 +21,7 @@ class MediasAdmin(admin.ModelAdmin):
 
     fieldsets = (
             (None, {
-                'fields': ('path',)
+                'fields': ('title', 'path',)
             }),)
 
     class Media:
@@ -49,7 +49,7 @@ class MediasAdmin(admin.ModelAdmin):
                     CKEditor = re.search('CKEditor=(\w+)', request.META['HTTP_REFERER']).groups()[0]
                     CKEditorFuncNum = re.search('CKEditorFuncNum=(\d+)', request.META['HTTP_REFERER']).groups()[0]
                     langCode = re.search('langCode=([a-z]{2})', request.META['HTTP_REFERER']).groups()[0]
-                    url = '/admin/filebrowser/file/?%s&CKEditor=%s&CKEditorFuncNum=%s&langCode=%s' % \
+                    url = '/admin/medias/file/?%s&CKEditor=%s&CKEditorFuncNum=%s&langCode=%s' % \
                           (request.GET.urlencode(), CKEditor, CKEditorFuncNum, langCode)
                     return HttpResponseRedirect(url)
             request.GET = req
@@ -65,10 +65,12 @@ class MediasAdmin(admin.ModelAdmin):
         msg = _('The %(name)s "%(obj)s" was added successfully.') % \
               {'name': force_unicode(opts.verbose_name), 'obj': force_unicode(obj)}
 
+        print 2
         if request.POST.has_key("ref") and \
            urlparse.urlparse(request.POST['ref']).query and \
            request.get_host() in request.POST['ref'] and \
            not (request.POST.has_key("_continue") or request.POST.has_key("_saveasnew") or request.POST.has_key("_addanother")):
+            print 1
 
             self.message_user(request, msg)
             change_url = reverse('admin:%s_%s_changelist' % (self.model._meta.app_label, self.model._meta.module_name))
