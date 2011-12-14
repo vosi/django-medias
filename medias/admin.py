@@ -1,3 +1,4 @@
+from posixpath import basename
 import re
 import urlparse
 from django.conf import settings
@@ -13,7 +14,7 @@ from medias.models import File
 class MediasAdmin(admin.ModelAdmin):
     list_per_page = 50
 
-    list_display = ('_select', '_preview', 'title', '_size', '_date',)
+    list_display = ('_select', '_preview', 'title', '_path', '_size', '_date',)
     list_filter = ['created_at']
     date_hierarchy = 'created_at'
     list_per_page = 25
@@ -113,9 +114,13 @@ class MediasAdmin(admin.ModelAdmin):
     _select.short_description = _('Select')
 
     def _preview(self, obj):
-        return '<a href="' + escapejs(obj.url) + '" target="_blank"> \
-            <img src="' + escapejs(obj.url) + '" width="50"></a>'
+        return '<a href="' + obj.url + '" target="_blank"> \
+            <img src="' + obj.url + '" width="50"></a>'
     _preview.allow_tags = True
     _preview.short_description = _('Preview')
+
+    def _path(self, obj):
+        return basename(obj.path.path)
+    _path.short_description = _('Name')
 
 admin.site.register(File, MediasAdmin)
