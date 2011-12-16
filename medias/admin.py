@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.utils.encoding import force_unicode
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import filesizeformat, escapejs
 from medias.models import File
 
@@ -88,15 +88,15 @@ class MediasAdmin(admin.ModelAdmin):
 
     def _date(self, obj):
         if obj.created_at != obj.modified_at:
-            return _('Created at <strong>%s</strong> by \
-             <strong>%s </strong><br/> \
-             Modified at <strong>%s</strong> by \
-             <strong>%s</strong>') \
-             % (obj.created_at, obj.created_by, obj.modified_at, obj.modified_by)
+            return _('Created at <strong>%(created)s</strong> by <strong>%(created_by)s </strong><br/> '
+                     'Modified at <strong>%(modified)s</strong> by <strong>%(modified_by)s</strong>') \
+            % {'created': obj.created_at,
+               'created_by': obj.created_by,
+               'modified': obj.modified_at,
+               'modified_by': obj.modified_by}
         else:
-            return _('Created at <strong>%s</strong> by \
-             <strong>%s</strong>') \
-             % (obj.created_at, obj.created_by)
+            return _('Created at <strong>%(created)s</strong> by <strong>%(created_by)s</strong>') \
+            % {'created': obj.created_at, 'created_by': obj.created_by}
     _date.allow_tags = True
     _date.short_description = _('Date')
 

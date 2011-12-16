@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-15 10:41+0200\n"
-"PO-Revision-Date: 2011-12-15 10:57\n"
+"PO-Revision-Date: 2011-12-15 10:53\n"
 "Last-Translator: Volodymyr Tartynskyi <me@vosi.kiev.ua>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,11 +22,11 @@ msgstr ""
 #: admin.py:61
 #, python-format
 msgid "The %(name)s \"%(obj)s\" was added successfully."
-msgstr "%(name)s \"%(obj)s\" добавлен."
+msgstr "%(name)s \"%(obj)s\" додано."
 
 #: admin.py:87 models.py:17
 msgid "Size"
-msgstr "Размер"
+msgstr "Розмір"
 
 #: admin.py:91
 #, python-format
@@ -35,9 +35,10 @@ msgid ""
 "</strong><br/> Modified at <strong>%(modified)s</strong> by "
 "<strong>%(modified_by)s</strong>"
 msgstr ""
-"Создано <strong>%(created)s</strong> пользователем "
-"<strong>%(created_by)s </strong><br/> Modified at "
-"<strong>%(modified)s</strong> by <strong>%(modified_by)s</strong>"
+"Додано <strong>%(created)s</strong> користувачем "
+"<strong>%(created_by)s </strong><br/> Змінено "
+"<strong>%(modified)s</strong> користувачем "
+"<strong>%(modified_by)s</strong>"
 
 #: admin.py:98
 #, python-format
@@ -45,7 +46,7 @@ msgid ""
 "Created at <strong>%(created)s</strong> by "
 "<strong>%(created_by)s</strong>"
 msgstr ""
-"Создано <strong>%(created)s</strong> пользователем "
+"Додано <strong>%(created)s</strong> користувачем "
 "<strong>%(created_by)s</strong>"
 
 #: admin.py:101
@@ -54,15 +55,15 @@ msgstr "Дата"
 
 #: admin.py:109 admin.py:114
 msgid "Select"
-msgstr "Выбрать"
+msgstr "Обрати"
 
 #: admin.py:120
 msgid "Preview"
-msgstr "Просмотр"
+msgstr "Перегляд"
 
 #: admin.py:124
 msgid "Name"
-msgstr "Имя"
+msgstr "Ім'я"
 
 #: models.py:14
 msgid "Path"
@@ -74,7 +75,7 @@ msgstr "Заголовок"
 
 #: models.py:18
 msgid "Extension"
-msgstr "Расширение"
+msgstr "Розширення"
 
 #: models.py:19
 msgid "Type"
@@ -86,27 +87,27 @@ msgstr "Ширина"
 
 #: models.py:22
 msgid "Height"
-msgstr "Высота"
+msgstr "Висота"
 
 #: models.py:24
 msgid "Length"
-msgstr "Длина"
+msgstr "Довжина"
 
 #: models.py:25
 msgid "Bitrate"
-msgstr "Качество звука"
+msgstr "Якість звуку"
 
 #: models.py:27
 msgid "Words"
-msgstr "Слов"
+msgstr "Слів"
 
 #: models.py:29
 msgid "Date created"
-msgstr "Создано"
+msgstr "Додано"
 
 #: models.py:35
 msgid "Date modified"
-msgstr "Изменено"
+msgstr "Змінено"
 
 #: models.py:44
 msgid "File"
@@ -114,7 +115,7 @@ msgstr "Файл"
 
 #: models.py:45
 msgid "Files"
-msgstr "Файлы"
+msgstr "Файли"
 
 #: settings.py:119
 msgid "Folder"
@@ -122,11 +123,11 @@ msgstr "Папка"
 
 #: settings.py:120
 msgid "Image"
-msgstr "Изображение"
+msgstr "Зображення"
 
 #: settings.py:121
 msgid "Video"
-msgstr "Видео"
+msgstr "Відео"
 
 #: settings.py:122
 msgid "Document"

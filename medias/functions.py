@@ -6,7 +6,7 @@ from time import gmtime, strftime, localtime, mktime, time
 from urlparse import urlparse
 
 # django imports
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 from django.core.files import File
 from django.core.files.storage import FileSystemStorage
