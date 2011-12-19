@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _u
 from django.template.defaultfilters import filesizeformat, escapejs
 from medias.models import File
 
@@ -106,7 +107,7 @@ class MediasAdmin(admin.ModelAdmin):
             return '<span class="fb_icon"> \
             <button class="button fb_selectlink" onclick="OpenFile(\'' \
                 + escapejs(obj.url) + \
-            '\');return false;">' + _('Select') + '</button> \
+            '\');return false;">' + _u('Select') + '</button> \
             </span>'
         else:
             return '-'
